@@ -6,11 +6,54 @@
   "main": "dist/react-accessible-treeview.cjs.js",
   "module": "dist/react-accessible-treeview.esm.js",
   "types": "dist/index.d.ts",
+  "engines": {
+    "npm": ">=8.3.0"
+  },
   "peerDependencies": {
     "classnames": "^2.2.6",
     "prop-types": "^15.7.2",
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
     "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"
+  },
+  "overrides": {
+    "@storybook/react": {
+      "@storybook/core": {
+        "@storybook/core-server": {
+          "cpy": {
+            "globby": {
+              "fast-glob": {
+                "glob-parent": "^5.1.2"
+              }
+            }
+          },
+          "x-default-browser": {
+            "default-browser-id": {
+              "meow": {
+                "trim-newlines": "^3.0.1"
+              }
+            }
+          }
+        },
+        "@storybook/csf-tools": {
+          "@storybook/mdx1-csf": {
+            "@mdx-js/mdx": {
+              "remark-parse": {
+                "trim": "^0.0.3"
+              }
+            }
+          }
+        }
+      },
+      "webpack": {
+        "watchpack": {
+          "watchpack-chokidar2": {
+            "chokidar": {
+              "glob-parent": "^5.1.2"
+            }
+          }
+        }
+      }
+    }
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
